@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { setTenant } from "@/store/slices/tenantSlice";
 import { setUsers } from "@/store/slices/usersSlice";
 import { TenantProps } from "@/types";
-import { axisUsers, sbiUsers } from "@/data/users";
+import { getAxisUsers, getSbiUsers } from "@/data/users";
 
 const LoginPage = () => {
     const [tenants, setTenants] = useState<TenantProps[]>([]);
@@ -40,7 +40,7 @@ const LoginPage = () => {
         setSelectedTenantId(tenant.id);
 
         dispatch(setTenant(tenant));
-        dispatch(setUsers(tenant.id === "axis" ? axisUsers : sbiUsers));
+        dispatch(setUsers(tenant.id === "axis" ? getAxisUsers() : getSbiUsers()));
 
         const selectTimeout = setTimeout(() => {
             router.push(`/dashboard/${tenant.id}`);

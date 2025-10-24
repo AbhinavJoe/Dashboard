@@ -1,6 +1,6 @@
 import { axisTenant } from "@/data/axis";
 import { sbiTenant } from "@/data/sbi";
-import { addAxisUser, addSbiUser, axisUsers, removeAxisUser, removeSbiUser, sbiUsers } from "@/data/users";
+import { addAxisUser, addSbiUser, getAxisUsers, removeAxisUser, removeSbiUser, getSbiUsers } from "@/data/users";
 import { AppDispatch } from "@/store";
 import { setUsers } from "@/store/slices/usersSlice";
 import { Tenant, User } from "@/types";
@@ -11,9 +11,9 @@ const listTenants = () => {
 
 const listUsers = (tenantId: Tenant, dispatch: AppDispatch) => {
     if (tenantId === 'axis') {
-        dispatch(setUsers(axisUsers))
+        dispatch(setUsers(getAxisUsers()))
     } else {
-        dispatch(setUsers(sbiUsers))
+        dispatch(setUsers(getSbiUsers()))
     }
 }
 

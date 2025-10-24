@@ -236,6 +236,10 @@ let axisUsers: User[] = [
   },
 ];
 
+const getSbiUsers = () => sbiUsers;
+
+const getAxisUsers = () => axisUsers;
+
 const removeSbiUser = (userId: string) => {
   sbiUsers = sbiUsers.filter(user => user.id !== userId);
 };
@@ -252,4 +256,4 @@ const addAxisUser = (user: User) => {
   axisUsers = [...axisUsers, user];
 };
 
-export { sbiUsers, axisUsers, removeAxisUser, removeSbiUser, addAxisUser, addSbiUser }
+export { getSbiUsers, getAxisUsers, removeAxisUser, removeSbiUser, addAxisUser, addSbiUser }
