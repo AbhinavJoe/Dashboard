@@ -241,8 +241,13 @@ const defaultAxisUsers: User[] = [
   },
 ];
 
-let sbiUsers: User[] = loadUserFromLocalStorage(SBI_USERS_KEY, defaultSbiUsers);
-let axisUsers: User[] = loadUserFromLocalStorage(AXIS_USERS_KEY, defaultAxisUsers);
+let sbiUsers: User[] = defaultSbiUsers;
+let axisUsers: User[] = defaultAxisUsers;
+
+if (typeof window !== 'undefined') {
+  sbiUsers = loadUserFromLocalStorage(SBI_USERS_KEY, defaultSbiUsers);
+  axisUsers = loadUserFromLocalStorage(AXIS_USERS_KEY, defaultAxisUsers);
+}
 
 const getSbiUsers = () => sbiUsers;
 
