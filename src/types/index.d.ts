@@ -1,5 +1,5 @@
-export type AgeRange = 'Below 30' | '31-40' | '41-50' | '51-60' | 'Above 60';
-export type Language = 'English' | 'Hindi' | 'Tamil' | 'Telugu' | 'Bengali' | 'Marathi' | 'Gujarati' | 'Kannada' | 'Malayalam' | 'Punjabi';
+export type AgeRange = 'Below 30' | '31-40' | '41-50' | '51-60' | 'Above 60' | '';
+export type Language = 'English' | 'Hindi' | 'Tamil' | 'Telugu' | 'Bengali' | 'Marathi' | 'Gujarati' | 'Kannada' | 'Malayalam' | 'Punjabi' | '';
 export type Tenant = 'sbi' | 'axis';
 
 export interface User {

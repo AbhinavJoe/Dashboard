@@ -18,8 +18,8 @@ const AddUserModal = ({ isOpen, onClose, tenantId }: AddUserModalProps) => {
         name: "",
         email: "",
         phone: "",
-        ageRange: "" as AgeRange | "",
-        language: "" as Language | "",
+        ageRange: "" as AgeRange,
+        language: "" as Language,
         website: "",
     });
 

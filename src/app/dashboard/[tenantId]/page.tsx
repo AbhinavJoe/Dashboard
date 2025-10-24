@@ -28,7 +28,7 @@ const DashboardPage = () => {
         const fetchTenants = async () => {
             const data = await listTenants();
             setTenants(data);
-            const tenant = data.find(t => t.id === tenantId);
+            const tenant = data.find(tenant => tenant.id === tenantId);
             if (tenant) setCurrentTenant(tenant);
         };
         fetchTenants();

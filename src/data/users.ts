@@ -1,6 +1,11 @@
 import { User } from '@/types';
+import { loadUserFromLocalStorage, saveUserToLocalStorage } from '@/utils/localStorage';
 
-let sbiUsers: User[] = [
+const SBI_USERS_KEY = 'sbi_users';
+const AXIS_USERS_KEY = 'axis_users';
+
+
+const defaultSbiUsers: User[] = [
   {
     id: '1',
     name: 'Rajesh Kumar',
@@ -118,7 +123,7 @@ let sbiUsers: User[] = [
   },
 ];
 
-let axisUsers: User[] = [
+const defaultAxisUsers: User[] = [
   {
     id: '11',
     name: 'Arjun Malhotra',
@@ -236,24 +241,31 @@ let axisUsers: User[] = [
   },
 ];
 
+let sbiUsers: User[] = loadUserFromLocalStorage(SBI_USERS_KEY, defaultSbiUsers);
+let axisUsers: User[] = loadUserFromLocalStorage(AXIS_USERS_KEY, defaultAxisUsers);
+
 const getSbiUsers = () => sbiUsers;
 
 const getAxisUsers = () => axisUsers;
 
 const removeSbiUser = (userId: string) => {
   sbiUsers = sbiUsers.filter(user => user.id !== userId);
+  saveUserToLocalStorage(SBI_USERS_KEY, sbiUsers);
 };
 
 const removeAxisUser = (userId: string) => {
   axisUsers = axisUsers.filter(user => user.id !== userId);
+  saveUserToLocalStorage(AXIS_USERS_KEY, axisUsers);
 };
 
 const addSbiUser = (user: User) => {
   sbiUsers = [...sbiUsers, user];
+  saveUserToLocalStorage(SBI_USERS_KEY, sbiUsers);
 };
 
 const addAxisUser = (user: User) => {
   axisUsers = [...axisUsers, user];
+  saveUserToLocalStorage(AXIS_USERS_KEY, axisUsers);
 };
 
 export { getSbiUsers, getAxisUsers, removeAxisUser, removeSbiUser, addAxisUser, addSbiUser }
